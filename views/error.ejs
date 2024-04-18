@@ -1,0 +1,22 @@
+<div class="bg-white bg-opacity-1 p-5 border rounded row">
+    <div class="col-md-6">
+        <% if (err) { %>
+            <h1 class="h1 display-5">
+                <%= err.status %>
+            </h1>
+            <span class="text-success fw-bold fs-1">&mdash;</span>
+            <p class="lead">
+                <%= err.message %>
+            </p>
+            <% } else { %>
+                <h1 class="h1 display-5">Server Error</h1>
+                <span class="text-success fw-bold fs-1">&mdash;</span>
+                <p class="lead">
+                    Server encountered an error while processing request. Please try again or contact administration.
+                </p>
+                <% } %>
+    </div>
+    <div class="col-md-6">
+        <img src="/images/hand-holding-maize.jpg" alt="" class="img-fluid rounded">
+    </div>
+</div>

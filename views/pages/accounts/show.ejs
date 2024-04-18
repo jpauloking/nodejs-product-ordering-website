@@ -1,0 +1,58 @@
+<div class="bg-white bg-opacity-1 p-5 border-top border-left border-right rounded-top row align-items-center">
+    <div class="col-md-6">
+        <h1 class="h1 display-5 text-uppercase">
+            <%= account.name %>
+        </h1>
+        <p>
+            <a href="/accounts/<%= account.id %>" class="text-success fs-6 text-decoration-none">
+                <%= account.email %> &nearrow;
+            </a>
+        </p>
+        <span class="text-success fw-bold fs-1">&mdash;</span>
+        <p class="lead">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla laborum fugiat quam modi hic harum
+            non autem, nobis nisi suscipit. Iste tenetur ipsa illum dignissimos facere sunt voluptates doloremque magni?
+        </p>
+    </div>
+    <div class="col-md-6">
+        <div class="card mb-3">
+            <div class="card-header">
+                <h2 class="h2 lead">Summary</h2>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Orders</li>
+                <li class="list-group-item">Completed</li>
+                <li class="list-group-item">Pending</li>
+                <li class="list-group-item">Cancelled</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="bg-white bg-opacity-1 p-5 border-top border-left border-right rounded-bottom row">
+    <div class="col-12">
+        <h1 class="h1 display-6">
+            Orders
+        </h1>
+        <ul class="list-group mt-5">
+            <% account.orders.forEach(order=> { %>
+                <a class="list-group-item list-group-item-action">
+                    <h3 class="h3 fs-6 fw-bold">
+                        <%= order.product.name %>
+                    </h3>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <p>
+                                <%= order.quantity %>
+                            </p>
+                        </div>
+                        <div>
+                            <p>
+                                <%= order.amount %>
+                            </p>
+                        </div>
+                    </div>
+                </a>
+                <% }) %>
+        </ul>
+    </div>
+</div>

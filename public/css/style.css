@@ -1,0 +1,23 @@
+@font-face {
+    font-family: 'Open Sans';
+    src: url('./../fonts/open_sans/OpenSans.ttf');
+}
+
+body {
+    font-family: 'Open Sans' !important;
+    background-color: #00794eee;
+    background-image: url('./../images/bg-image.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-blend-mode: overlay;
+}
+
+input[type='text'],
+input[type='password'],
+input[type='email'],
+input[type='tel'],
+input[type='date'],
+textarea,
+select {
+    font-family: 'Open Sans' !important;
+}

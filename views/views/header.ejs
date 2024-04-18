@@ -1,0 +1,47 @@
+<header class="container-fluid border-bottom border-success">
+    <nav class="navbar navbar-expand-md navbar-dark container fixed">
+        <a class="navbar-brand display-6 text-dark" href="/">NodeJS Ecommerce Website</a>
+        <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#header-navbar"
+            aria-controls="header-navbar" aria-expanded="false" aria-label="toggle header navbar"></button>
+        <div class="collapse navbar-collapse" id="header-navbar">
+            <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link <%= locals.verifyIsCurrentRoute('/', locals.currentRoute) %>" href="/" aria-current="page">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link <%= locals.verifyIsCurrentRoute('/products', locals.currentRoute) %>" href="/products">Products</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link <%= locals.verifyIsCurrentRoute('/categories', locals.currentRoute) %>" href="/categories">Categories</a>
+                </li>
+                <% if (locals.user) { %>
+                    <% if (locals.user.isAdmin) { %>
+                        <li class="nav-item">
+                            <a class="nav-link <%= locals.verifyIsCurrentRoute('/orders', locals.currentRoute) %>" href="/orders">Orders</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link <%= locals.verifyIsCurrentRoute('/accounts/index', locals.currentRoute) %>" href="/accounts">Accounts</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link <%= locals.verifyIsCurrentRoute(`/accounts/${locals.user.id}`, locals.currentRoute) %>" href="/accounts/<%= locals.user.id %>"><%= locals.user.email %></a>
+                        </li>
+                        <% } else { %>
+                            <li class="nav-item">
+                                <a class="nav-link <%= locals.verifyIsCurrentRoute(`/accounts/${locals.user.id}`, locals.currentRoute) %>" href="/accounts/<%= locals.user.id %>">My orders</a>
+                            </li>
+                            <% } %>
+                                <li class="nav-item">
+                                    <a class="nav-link <%= locals.verifyIsCurrentRoute('/accounts/logout', locals.currentRoute) %>" href="/accounts/logout">Logout</a>
+                                </li>
+                                <% } else { %>
+                                    <li class="nav-item">
+                                        <a class="nav-link <%= locals.verifyIsCurrentRoute('/accounts/login', locals.currentRoute) %>" href="/accounts/login">Login</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link <%= locals.verifyIsCurrentRoute('/accounts/create', locals.currentRoute) %>" href="/accounts/create">Create account</a>
+                                    </li>
+                                    <% } %>
+            </ul>
+        </div>
+    </nav>
+</header>

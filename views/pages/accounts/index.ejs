@@ -1,0 +1,46 @@
+<div class="bg-white bg-opacity-1 p-5 border-top border-left border-right rounded-top row">
+    <div class="col">
+        <div class="card mb-3">
+            <div class="card-header">
+                <h2 class="h2 lead">Summary</h2>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Orders</li>
+                <li class="list-group-item">Completed</li>
+                <li class="list-group-item">Pending</li>
+                <li class="list-group-item">Cancelled</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="bg-white border-top border-left border-right bg-opacity-1 p-5 rounded-bottom row">
+    <div class="col-12">
+        <h1 class="h1 display-6">
+            Accounts
+        </h1>
+    </div>
+    <div class="col-12">
+        <table class="table table-success table-striped table-hover table-condensed">
+            <thead class="thead">
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% accounts.forEach(account=> { %>
+                    <tr>
+                        <td>
+                            <a href="/accounts/<%= account.id %>" class="text-success text-uppercase fs-6 text-decoration-none">
+                                <%= account.name %> &nearrow;
+                            </a>
+                        </td>
+                        <td><a href="/accounts/<%= account.id %>" class="text-success fs-6 text-decoration-none">
+                                <%= account.email %> &nearrow;
+                            </a></td>
+                    </tr>
+                    <% }) %>
+            </tbody>
+        </table>
+    </div>
+</div>

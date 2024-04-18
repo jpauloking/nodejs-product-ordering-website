@@ -1,0 +1,59 @@
+<div class="bg-white bg-opacity-1 p-5 border-top border-left border-right rounded-top row align-items-center">
+    <div class="col">
+        <div class="card mb-3">
+            <div class="card-header">
+                <h2 class="h2 lead">Summary</h2>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Orders</li>
+                <li class="list-group-item">Completed</li>
+                <li class="list-group-item">Pending</li>
+                <li class="list-group-item">Cancelled</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="bg-white bg-opacity-1 p-5 border-top border-left border-right rounded-bottom row">
+    <div class="col-12">
+        <h1 class="h1 display-6">
+            Orders
+        </h1>
+    </div>
+    <div class="col-12">
+        <table class="table table-hover table-striped table-success">
+            <thead>
+                <tr>
+                    <th>Account</th>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% orders.forEach(order=> { %>
+                    <tr>
+                        <td>
+                            <span class="d-flex flex-column">
+                                <a href="/accounts/<%= order.account.id %>" class="fs-6 text-success text-uppercase text-decoration-none">
+                                    <%= order.account.name %> &nearrow;
+                                </a>
+                                <a href="/accounts/<%= order.account.id %>" class="text-success text-decoration-none">
+                                    <%= order.account.email %> &nearrow;
+                                </a>
+                            </span>
+                        </td>
+                        <td>
+                            <%= order.product.name %>
+                        </td>
+                        <td>
+                            <%= order.quantity %>
+                        </td>
+                        <td>
+                            <%= order.amount %>
+                        </td>
+                    </tr>
+                    <% }) %>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,39 @@
+<div class="bg-white bg-opacity-1 p-5 border rounded row">
+    <div class="col-md-6">
+        <h1 class="h1 display-6">Place order</h1>
+        <span class="text-success fw-bold fs-1">&mdash;</span>
+        <h2 class="h2"><%= product.name %></h2>
+        <p class="lead">
+            <%= product.shortDescription %>
+        </p>
+        <img src="/images/products/<%= product.imageUrl %>" alt="" class="img-fluid img-thumbnail w-75 w-md-50">
+    </div>
+    <div class="col-md-6">
+        <div class="card my-5">
+            <div class="card-body p-5">
+                <form method="post" action="/orders">
+                    <input type="hidden" name="id" value="<%= product.id %>">
+                    <div class="mt-3">
+                        <label for="name" class="form-label fw-bold fs-6">Name</label>
+                        <input type="text" readonly disabled name="name" id="name" value="<%= locals.user.name %>" class="form-control">
+                    </div>
+                    <div class="mt-3">
+                        <label for="email" class="form-label fw-bold fs-6">Email</label>
+                        <input type="email" readonly disabled name="email" id="email" value="<%= locals.user.email %>" class="form-control">
+                    </div>
+                    <div class="mt-3">
+                        <label for="amount" class="form-label fw-bold fs-6">Amount per unit</label>
+                        <input type="number" readonly disabled name="amount" id="amount" value="<%= amount %>" class="form-control">
+                    </div>
+                    <div class="mt-3">
+                        <label for="quantity" class="form-label fw-bold fs-6">Quantity</label>
+                        <input type="number" name="quantity" id="quantity" min="1" value="<%= quantity %>" class="form-control">
+                    </div>
+                    <div class="mt-5">
+                        <input type="submit" value="Complete order" class="form-control btn btn-outline-success text-uppercase">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
